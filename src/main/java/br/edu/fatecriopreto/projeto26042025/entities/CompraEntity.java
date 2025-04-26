@@ -1,7 +1,9 @@
 package br.edu.fatecriopreto.projeto26042025.entities;
+import java.sql.Timestamp;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,26 +14,23 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 @Entity
-@Table(name="tbprodutos")
+@Table(name="tbcompras")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter 
-public class ProdutoEntity {
+public class CompraEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name="descricao", length = 200, nullable = false)
-    private String descricao;
-    @Column
-    private int estoque;
-    @Column
-    private float precoVenda;
-    @Column
-    private float precoCusto;
-    
-    @JoinColumn(name="idcategoria", nullable = false)
+    private Timestamp datahora;
+    private float desconto;
+    @Enumerated(EnumType.STRING)
+    private TipoPagamento tipoPagamento;
+    private float total;
     @OneToOne
-    private CategoriaEntity categoria;
+    @JoinColumn(name = "idusuario", referencedColumnName = "id")
+    UsuarioEntity usuario;
 }

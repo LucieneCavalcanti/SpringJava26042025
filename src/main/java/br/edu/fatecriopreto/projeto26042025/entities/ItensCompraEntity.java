@@ -1,6 +1,5 @@
 package br.edu.fatecriopreto.projeto26042025.entities;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,26 +11,24 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 @Entity
-@Table(name="tbprodutos")
+@Table(name="tbitenscompra")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Setter 
-public class ProdutoEntity {
+@Setter  
+public class ItensCompraEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column(name="descricao", length = 200, nullable = false)
-    private String descricao;
-    @Column
-    private int estoque;
-    @Column
-    private float precoVenda;
-    @Column
-    private float precoCusto;
-    
-    @JoinColumn(name="idcategoria", nullable = false)
+    private int idItem;   
+    private int quantidade;
+    private float valor;
+    private float desconto;
     @OneToOne
-    private CategoriaEntity categoria;
+    @JoinColumn(name = "idcompra", referencedColumnName = "id")
+    CompraEntity compra;
+    @OneToOne
+    @JoinColumn(name = "idproduto", referencedColumnName = "id")
+    ProdutoEntity produto;
 }
