@@ -1,5 +1,11 @@
 package br.edu.fatecriopreto.projeto26042025.repository;
 
-public interface UsuarioRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import br.edu.fatecriopreto.projeto26042025.entities.CompraEntity;
+
+@Repository
+public interface CompraRepository extends JpaRepository<CompraEntity, Integer>{
 
 }

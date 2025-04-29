@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -25,7 +26,7 @@ public class ItensCompraEntity {
     private int quantidade;
     private float valor;
     private float desconto;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "idcompra", referencedColumnName = "id")
     CompraEntity compra;
     @OneToOne

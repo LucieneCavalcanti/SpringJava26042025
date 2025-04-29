@@ -13,25 +13,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.fatecriopreto.projeto26042025.entities.CategoriaEntity;
-import br.edu.fatecriopreto.projeto26042025.service.CategoriaService;
+import br.edu.fatecriopreto.projeto26042025.entities.ItensCompraEntity;
+import br.edu.fatecriopreto.projeto26042025.service.ItensCompraService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequiredArgsConstructor //colocando isso não precisa colocar @Autowired no atributo
-@RequestMapping(value = "/categorias")
-public class CategoriaController {
+@RequiredArgsConstructor
+@RequestMapping(value = "/itensItenscompra")
+public class ItensItensCompraController {
     @SuppressWarnings("unused")
-    private final CategoriaService categoriaService;
-        @GetMapping
-    public ResponseEntity<List<CategoriaEntity>> listarTodos() {
-        List<CategoriaEntity> lista = categoriaService.listarTodos();
+    private final ItensCompraService itemService;
+    @GetMapping
+    public ResponseEntity<List<ItensCompraEntity>> listarTodos() {
+        List<ItensCompraEntity> lista = itemService.listarTodos();
         return ResponseEntity.ok().body(lista);
     }
 
     @PostMapping
-    public ResponseEntity<CategoriaEntity> incluir(@RequestBody CategoriaEntity produto) {
-        CategoriaEntity novo = categoriaService.incluir(produto);
+    public ResponseEntity<ItensCompraEntity> incluir(@RequestBody ItensCompraEntity ItensCompra) {
+        ItensCompraEntity novo = itemService.incluir(ItensCompra);
         if (novo != null) {
             return new ResponseEntity<>(novo, HttpStatus.CREATED);
         } else {
@@ -39,8 +39,8 @@ public class CategoriaController {
         }
     }
      @PutMapping("/{id}")
-    public ResponseEntity<CategoriaEntity> editar(@PathVariable int id, @RequestBody CategoriaEntity usuarioDetails) {
-        CategoriaEntity atualizado = categoriaService.editar(id,usuarioDetails);
+    public ResponseEntity<ItensCompraEntity> editar(@PathVariable int id, @RequestBody ItensCompraEntity usuarioDetails) {
+        ItensCompraEntity atualizado = itemService.editar(id,usuarioDetails);
         if (atualizado != null) {
             return new ResponseEntity<>(atualizado, HttpStatus.OK);
         } else {
@@ -49,7 +49,7 @@ public class CategoriaController {
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable int id) {
-        categoriaService.excluir(id);
+        itemService.excluir(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
