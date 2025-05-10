@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import br.edu.fatecriopreto.projeto26042025.entities.UsuarioEntity;
 
 @Repository
-public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Integer>{
+public interface UsuarioRepository extends 
+JpaRepository<UsuarioEntity, Integer>{
 
 }

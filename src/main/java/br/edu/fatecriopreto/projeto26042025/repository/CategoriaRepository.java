@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import br.edu.fatecriopreto.projeto26042025.entities.CategoriaEntity;
 
 @Repository
-public interface CategoriaRepository extends JpaRepository<CategoriaEntity, Integer>{
+public interface CategoriaRepository
+ extends JpaRepository<CategoriaEntity, Integer>{
 
 }

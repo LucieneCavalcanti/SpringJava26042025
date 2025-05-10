@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 public class CategoriaController {
     @SuppressWarnings("unused")
     private final CategoriaService categoriaService;
-        @GetMapping
+    @GetMapping
     public ResponseEntity<List<CategoriaEntity>> listarTodos() {
         List<CategoriaEntity> lista = categoriaService.listarTodos();
         return ResponseEntity.ok().body(lista);

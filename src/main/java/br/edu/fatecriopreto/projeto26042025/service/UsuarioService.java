@@ -17,7 +17,7 @@ public class UsuarioService {
     @Autowired
     private final UsuarioRepository usuarioRepository;
 
-        public UsuarioEntity incluir(UsuarioEntity usuario) {
+    public UsuarioEntity incluir(UsuarioEntity usuario) {
         return usuarioRepository.save(usuario);
     }
 

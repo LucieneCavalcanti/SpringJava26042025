@@ -38,7 +38,8 @@ public class UsuarioController {
     // }
 
     @PostMapping
-    public ResponseEntity<UsuarioEntity> incluir(@RequestBody UsuarioEntity usuario) {
+    public ResponseEntity<UsuarioEntity> incluir(@RequestBody
+     UsuarioEntity usuario) {
         UsuarioEntity novo = usuarioService.incluir(usuario);
         if (novo != null) {
             return new ResponseEntity<>(novo, HttpStatus.CREATED);
@@ -48,7 +49,8 @@ public class UsuarioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UsuarioEntity> editar(@PathVariable int id, @RequestBody UsuarioEntity usuarioDetails) {
+    public ResponseEntity<UsuarioEntity> editar(@PathVariable int id,
+     @RequestBody UsuarioEntity usuarioDetails) {
         UsuarioEntity atualizado = usuarioService.editar(id,usuarioDetails);
         if (atualizado != null) {
             return new ResponseEntity<>(atualizado, HttpStatus.OK);
