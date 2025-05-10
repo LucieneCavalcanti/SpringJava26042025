@@ -36,7 +36,7 @@ public class UsuarioEntity {
     private String senha;
     @Column(name = "emailusuario", length = 200, nullable = false)
     private String email;
-    @JoinColumn(name="idstatus", nullable = false)
+    @JoinColumn(name="idstatus", referencedColumnName = "id")
     @OneToOne
     private StatusEntity status;
     //ou @Column(columnDefinition = "timestamp default current_timestamp")

@@ -35,7 +35,7 @@ public class ProdutoEntity {
     @Column
     private float precoCusto;
     
-    @JoinColumn(name="idcategoria", nullable = false)
+    @JoinColumn(name="idcategoria", referencedColumnName = "id")
     @OneToOne
     private CategoriaEntity categoria;
         private LocalDateTime dataCriacao;
