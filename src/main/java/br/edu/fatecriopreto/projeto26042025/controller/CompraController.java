@@ -30,8 +30,8 @@ public class CompraController {
     }
 
     @PostMapping
-    public ResponseEntity<CompraEntity> incluir(@RequestBody CompraEntity Compra) {
-        CompraEntity novo = compraService.incluir(Compra);
+    public ResponseEntity<CompraEntity> incluir(@RequestBody CompraEntity compra) {
+        CompraEntity novo = compraService.incluir(compra);
         if (novo != null) {
             return new ResponseEntity<>(novo, HttpStatus.CREATED);
         } else {

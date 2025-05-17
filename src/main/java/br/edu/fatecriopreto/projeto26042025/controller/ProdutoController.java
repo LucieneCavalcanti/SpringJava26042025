@@ -39,8 +39,8 @@ public class ProdutoController {
         }
     }
      @PutMapping("/{id}")
-    public ResponseEntity<ProdutoEntity> editar(@PathVariable int id, @RequestBody ProdutoEntity usuarioDetails) {
-        ProdutoEntity atualizado = produtoService.editar(id,usuarioDetails);
+    public ResponseEntity<ProdutoEntity> editar(@PathVariable int id, @RequestBody ProdutoEntity produto) {
+        ProdutoEntity atualizado = produtoService.editar(id,produto);
         if (atualizado != null) {
             return new ResponseEntity<>(atualizado, HttpStatus.OK);
         } else {

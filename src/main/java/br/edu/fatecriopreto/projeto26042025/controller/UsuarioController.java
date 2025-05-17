@@ -50,8 +50,8 @@ public class UsuarioController {
 
     @PutMapping("/{id}")
     public ResponseEntity<UsuarioEntity> editar(@PathVariable int id,
-     @RequestBody UsuarioEntity usuarioDetails) {
-        UsuarioEntity atualizado = usuarioService.editar(id,usuarioDetails);
+     @RequestBody UsuarioEntity usuario) {
+        UsuarioEntity atualizado = usuarioService.editar(id,usuario);
         if (atualizado != null) {
             return new ResponseEntity<>(atualizado, HttpStatus.OK);
         } else {

@@ -30,23 +30,27 @@ public class CategoriaController {
     }
 
     @PostMapping
-    public ResponseEntity<CategoriaEntity> incluir(@RequestBody CategoriaEntity produto) {
-        CategoriaEntity novo = categoriaService.incluir(produto);
+    public ResponseEntity<CategoriaEntity> incluir(@RequestBody CategoriaEntity categoria) {
+        CategoriaEntity novo = categoriaService.incluir(categoria);
         if (novo != null) {
             return new ResponseEntity<>(novo, HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
      @PutMapping("/{id}")
-    public ResponseEntity<CategoriaEntity> editar(@PathVariable int id, @RequestBody CategoriaEntity usuarioDetails) {
-        CategoriaEntity atualizado = categoriaService.editar(id,usuarioDetails);
+    public ResponseEntity<CategoriaEntity> editar(@PathVariable int id, 
+    @RequestBody CategoriaEntity categoria) {
+        CategoriaEntity atualizado = categoriaService.editar(id,categoria);
         if (atualizado != null) {
             return new ResponseEntity<>(atualizado, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable int id) {
         categoriaService.excluir(id);
